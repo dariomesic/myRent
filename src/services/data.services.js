@@ -351,48 +351,6 @@ class DataService {
     })
   }
 
-  uploadDocument(formData){
-    return fetch('http://23.102.22.40:8080/uploadDocument', {
-      method : "POST",
-      body: formData
-    })
-    .then((response) => {
-        if (!response.ok) {
-            throw new Error(response.error)
-        }
-        return response.json();
-    })
-  }
-
-  getDocumentsBySystemId(system_id){
-    return fetch('http://23.102.22.40:8080/getDocumentsBySystemId?system_id=' + system_id, {
-      method : "GET",
-    })
-    .then((response) => {
-        if (!response.ok) {
-            throw new Error(response.error)
-        }
-        return response.json();
-    })
-  }
-
-  searchDocuments(text){
-    return fetch('http://23.102.22.40:8080/searchDocuments', {
-      method : "POST",
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({text: text})
-    })
-    .then((response) => {
-        if (!response.ok) {
-            throw new Error(response.error)
-        }
-        return response.json();
-    })
-  }
-
   sendQuestions(questions, intent_id, questions_len){
     return fetch('http://23.102.22.40:8080/sendQuestions', {
       method : "POST",
